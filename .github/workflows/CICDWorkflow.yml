@@ -2,7 +2,7 @@ name: deployment to alex server
 on: 
   push:
     branches:
-      - main
+      - master
  
 jobs:
   build:
