@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cort-ingress
+  namespace: cort
+spec:
+  rules:
+  - host: api.cort-react.duckdns.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: cort-service
+            port:
+              number: 8080

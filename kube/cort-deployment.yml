@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: cort
+  name: cort-api
+  labels:
+    app: cort-api
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: cort-api
+  template:
+    metadata:
+      labels:
+        app: cort-api
+    spec:
+      containers:
+      - name: cort-api-container
+        image: cortlynd101/cort-api:${IMAGE_TAG}  
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: cort-api-storage
+          mountPath: /storage  
+      volumes:
+      - name: cort-api-storage
+        persistentVolumeClaim:
+          claimName: cort-api-pvc
