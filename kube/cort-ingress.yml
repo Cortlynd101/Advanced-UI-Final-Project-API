@@ -5,7 +5,7 @@ metadata:
   namespace: cort
 spec:
   rules:
-  - host: api.cort-react.duckdns.org
+  - host: api.cort-final.duckdns.org
     http:
       paths:
       - path: /
