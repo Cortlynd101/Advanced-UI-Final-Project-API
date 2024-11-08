@@ -14,7 +14,7 @@ COPY --from=build /app/out .
  
 EXPOSE 80
  
-CMD ["dotnet", "Dotnet.dll"]  
+CMD ["dotnet", "Final_Project_API.dll"]  
 
 # FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 # WORKDIR /app
