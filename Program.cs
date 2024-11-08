@@ -8,20 +8,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = "https://auth.snowse.duckdns.org/realms/advanced-frontend",
-                ValidAudience = "cort-id",
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key"))
-            };
-        });
+// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//         .AddJwtBearer(options =>
+//         {
+//             options.TokenValidationParameters = new TokenValidationParameters
+//             {
+//                 ValidateIssuer = true,
+//                 ValidateAudience = true,
+//                 ValidateLifetime = true,
+//                 ValidateIssuerSigningKey = true,
+//                 ValidIssuer = "https://auth.snowse.duckdns.org/realms/advanced-frontend",
+//                 ValidAudience = "cort-id",
+//                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key"))
+//             };
+//         });
 
 var app = builder.Build();
 app.UseCors(c => c.AllowAnyHeader()
