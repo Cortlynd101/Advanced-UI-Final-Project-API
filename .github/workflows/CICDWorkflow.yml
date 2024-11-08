@@ -18,11 +18,11 @@ jobs:
  
       - name: Build image
         run: |
-          docker build -t cortlynd101/cort-api:${{ github.run_number }} .
+          docker build -t cortlynd101/cort-api-final:${{ github.run_number }} .
  
       - name: Push image
         run: |
-          docker push cortlynd101/cort-api:${{ github.run_number }}
+          docker push cortlynd101/cort-api-final:${{ github.run_number }}
       - name: Deploy
         run: | 
           export PATH=$PATH:~/.nix-profile/bin:/nix/var/nix/profiles/default/bin

@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: cort
-  name: cort-api
+  name: cort-api-final
   labels:
-    app: cort-api
+    app: cort-api-final
 spec:
   replicas: 2 
   selector:
     matchLabels:
-      app: cort-api
+      app: cort-api-final
   template:
     metadata:
       labels:
-        app: cort-api
+        app: cort-api-final
     spec:
       containers:
       - name: cort-api-container
-        image: cortlynd101/cort-api:${IMAGE_TAG}  
+        image: cortlynd101/cort-api-final:${IMAGE_TAG}  
         ports:
         - containerPort: 8080
         volumeMounts:

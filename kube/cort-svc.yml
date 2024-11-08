@@ -5,7 +5,7 @@ metadata:
   namespace: cort
 spec:
   selector:
-    app: cort-api
+    app: cort-api-final
   ports:
   - protocol: TCP
     port: 8080
