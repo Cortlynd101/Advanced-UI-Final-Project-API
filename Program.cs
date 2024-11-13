@@ -1,5 +1,5 @@
 using System.Text;
-using gameapi;
+using movieapi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -8,20 +8,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = "https://auth.snowse.duckdns.org/realms/advanced-frontend",
-                ValidAudience = "cort-id",
-                // IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key"))
-            };
-        });
+// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//         .AddJwtBearer(options =>
+//         {
+//             options.TokenValidationParameters = new TokenValidationParameters
+//             {
+//                 ValidateIssuer = true,
+//                 ValidateAudience = true,
+//                 ValidateLifetime = true,
+//                 ValidateIssuerSigningKey = true,
+//                 ValidIssuer = "https://auth.snowse.duckdns.org/realms/advanced-frontend",
+//                 ValidAudience = "cort-id",
+//                 // IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key"))
+//             };
+//         });
 
 var app = builder.Build();
 app.UseCors(c => c.AllowAnyHeader()
@@ -35,26 +35,26 @@ app.MapGet("/authOnly", () => {
 
 app.MapGet("/public", () => "Hello World Public!").AllowAnonymous();
 
-app.MapPost("/add-game", async (Game game) => 
+app.MapPost("/add-movie", async (Movie movie) => 
 {
-    await GameGetter.AddNewGameAsync(game);
+    await MovieGetter.AddNewMovieAsync(movie);
     return Results.Ok();
 }).DisableAntiforgery();
 
-app.MapPut("/modify-game/{id}", async (Game game, int id) =>
+app.MapPut("/modify-movie/{id}", async (Movie movie, int id) =>
 {
-    await GameGetter.ModifyGameAsync(game, id);
+    await MovieGetter.ModifyMovieAsync(movie, id);
 });
 
 app.MapGet("/", async () =>
 {
-    var games = await GameGetter.GetAllGamesAsync();
-    return games;
+    var movies = await MovieGetter.GetAllMoviesAsync();
+    return movies;
 });
 
-app.MapDelete("/delete-game/{id}", (int id) =>
+app.MapDelete("/delete-movie/{id}", (int id) =>
 {
-    GameGetter.DeleteGame(id);
+    MovieGetter.DeleteMovie(id);
     return Results.Ok();
 });
 

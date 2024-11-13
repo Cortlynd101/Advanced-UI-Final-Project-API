@@ -1,6 +1,6 @@
-namespace gameapi;
+namespace movieapi;
 
-public class Game
+public class Movie
 {
     public int Id { get; set; }
     public string? Name { get; set; }
