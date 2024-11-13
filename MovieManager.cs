@@ -27,8 +27,8 @@ public class MovieGetter
             movies[id].Id = movie.Id;
             movies[id].Name = movie.Name;
             movies[id].Genre = movie.Genre;
-            movies[id].HoursPlayed = movie.HoursPlayed;
-            movies[id].HowLongToBeat = movie.HowLongToBeat;
+            movies[id].Runtime = movie.Runtime;
+            movies[id].Rating = movie.Rating;
 
             string moviesJson = JsonSerializer.Serialize(movies);
             await File.WriteAllTextAsync(filePath, moviesJson);
@@ -64,46 +64,46 @@ public class MovieGetter
         {
             Movie movie1 = new Movie() {
                 Id = 0,
-                Name = "Rimworld",
-                Genre = "Colony Builder",
-                HoursPlayed = "529.6",
-                HowLongToBeat = "121"
+                Name = "Interstellar",
+                Genre = "Science Fiction",
+                Runtime = "2h 49m",
+                Rating = "8.7"
             };
             await AddNewMovieAsync(movie1);
 
             Movie movie2 = new Movie() {
                 Id = 1,
-                Name = "Terraria",
-                Genre = "Open World Survival Craft",
-                HoursPlayed = "348.8",
-                HowLongToBeat = "150"
+                Name = "The Dark Knight",
+                Genre = "Action",
+                Runtime = "2h 32m",
+                Rating = "9.0"
             };
             await AddNewMovieAsync(movie2);
 
             Movie movie3 = new Movie() {
                 Id = 2,
-                Name = "Helldivers 2",
-                Genre = "Online Co-op",
-                HoursPlayed = "241.3",
-                HowLongToBeat = "60"
+                Name = "The Lord of the Rings: Return of the King",
+                Genre = "Fantasy",
+                Runtime = "3h 21m",
+                Rating = "9.0"
             };
             await AddNewMovieAsync(movie3);
 
             Movie movie4 = new Movie() {
                 Id = 3,
-                Name = "7 Days to Die",
-                Genre = "Survival",
-                HoursPlayed = "229.8",
-                HowLongToBeat = "40"
+                Name = "Harry Potter and the Chamber of Secrets",
+                Genre = "Fantasy",
+                Runtime = "2h 41m",
+                Rating = "7.4"
             };
             await AddNewMovieAsync(movie4);
 
             Movie movie5 = new Movie() {
                 Id = 4,
-                Name = "Counter Strike 2",
-                Genre = "FPS",
-                HoursPlayed = "192.4",
-                HowLongToBeat = "1000"
+                Name = "Star Wars: Episode V - The Empire Strikes Back",
+                Genre = "Science Fiction",
+                Runtime = "2h 4m",
+                Rating = "8.7"
             };
             await AddNewMovieAsync(movie5);
         }
