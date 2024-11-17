@@ -29,6 +29,8 @@ public class MovieGetter
             movies[id].Genre = movie.Genre;
             movies[id].Runtime = movie.Runtime;
             movies[id].Rating = movie.Rating;
+            movies[id].EntranceDate = movie.EntranceDate;
+            movies[id].ExitDate = movie.ExitDate;
 
             string moviesJson = JsonSerializer.Serialize(movies);
             await File.WriteAllTextAsync(filePath, moviesJson);
@@ -67,7 +69,9 @@ public class MovieGetter
                 Name = "Interstellar",
                 Genre = "Science Fiction",
                 Runtime = "2h 49m",
-                Rating = "8.7"
+                Rating = "8.7",
+                EntranceDate =  new DateTime(2024, 11, 29),
+                ExitDate =  new DateTime(2024, 12, 05),
             };
             await AddNewMovieAsync(movie1);
 
@@ -76,7 +80,9 @@ public class MovieGetter
                 Name = "The Dark Knight",
                 Genre = "Action",
                 Runtime = "2h 32m",
-                Rating = "9.0"
+                Rating = "9.0",
+                EntranceDate =  new DateTime(2024, 11, 29),
+                ExitDate =  new DateTime(2024, 12, 05),
             };
             await AddNewMovieAsync(movie2);
 
@@ -85,7 +91,9 @@ public class MovieGetter
                 Name = "The Lord of the Rings: Return of the King",
                 Genre = "Fantasy",
                 Runtime = "3h 21m",
-                Rating = "9.0"
+                Rating = "9.0",
+                EntranceDate =  new DateTime(2024, 11, 29),
+                ExitDate =  new DateTime(2024, 12, 05),
             };
             await AddNewMovieAsync(movie3);
 
@@ -94,7 +102,9 @@ public class MovieGetter
                 Name = "Harry Potter and the Chamber of Secrets",
                 Genre = "Fantasy",
                 Runtime = "2h 41m",
-                Rating = "7.4"
+                Rating = "7.4",
+                EntranceDate =  new DateTime(2024, 12, 06),
+                ExitDate =  new DateTime(2024, 12, 12),
             };
             await AddNewMovieAsync(movie4);
 
@@ -103,7 +113,9 @@ public class MovieGetter
                 Name = "Star Wars: Episode V - The Empire Strikes Back",
                 Genre = "Science Fiction",
                 Runtime = "2h 4m",
-                Rating = "8.7"
+                Rating = "8.7",
+                EntranceDate =  new DateTime(2024, 12, 06),
+                ExitDate =  new DateTime(2024, 12, 12),
             };
             await AddNewMovieAsync(movie5);
         }

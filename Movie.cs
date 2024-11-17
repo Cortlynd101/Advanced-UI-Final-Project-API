@@ -7,4 +7,6 @@ public class Movie
     public string? Genre { get; set; }
     public string? Runtime { get; set; }
     public string? Rating { get; set; }
+    public DateTime? EntranceDate { get; set; }
+    public DateTime? ExitDate { get; set; }
 }
