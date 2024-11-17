@@ -1,5 +1,6 @@
 using System.Text;
 using movieapi;
+using ticketapi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -52,9 +53,32 @@ app.MapGet("/", async () =>
     return movies;
 });
 
+app.MapGet("/get-tickets", async () =>
+{
+    var tickets = await TicketGetter.GetAllTicketsAsync();
+    return tickets;
+});
+
 app.MapDelete("/delete-movie/{id}", (int id) =>
 {
     MovieGetter.DeleteMovie(id);
+    return Results.Ok();
+});
+
+app.MapPost("/add-ticket", async (Ticket ticket) => 
+{
+    await TicketGetter.AddNewTicketAsync(ticket);
+    return Results.Ok();
+}).DisableAntiforgery();
+
+app.MapPut("/modify-ticket/{id}", async (Ticket ticket, int id) =>
+{
+    await TicketGetter.ModifyTicketAsync(ticket, id);
+});
+
+app.MapDelete("/delete-ticket/{id}", (int id) =>
+{
+    TicketGetter.DeleteTicket(id);
     return Results.Ok();
 });
 
