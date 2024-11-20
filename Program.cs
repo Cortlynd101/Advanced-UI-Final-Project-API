@@ -1,6 +1,8 @@
 using System.Text;
 using movieapi;
 using ticketapi;
+using snackapi;
+using userapi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -53,16 +55,16 @@ app.MapGet("/", async () =>
     return movies;
 });
 
-app.MapGet("/get-tickets", async () =>
-{
-    var tickets = await TicketGetter.GetAllTicketsAsync();
-    return tickets;
-});
-
 app.MapDelete("/delete-movie/{id}", (int id) =>
 {
     MovieGetter.DeleteMovie(id);
     return Results.Ok();
+});
+
+app.MapGet("/get-tickets", async () =>
+{
+    var tickets = await TicketGetter.GetAllTicketsAsync();
+    return tickets;
 });
 
 app.MapPost("/add-ticket", async (Ticket ticket) => 
@@ -79,6 +81,52 @@ app.MapPut("/modify-ticket/{id}", async (Ticket ticket, int id) =>
 app.MapDelete("/delete-ticket/{id}", (int id) =>
 {
     TicketGetter.DeleteTicket(id);
+    return Results.Ok();
+});
+
+app.MapGet("/get-snacks", async () =>
+{
+    var snacks = await SnackGetter.GetAllSnacksAsync();
+    return snacks;
+});
+
+app.MapPost("/add-snack", async (Snack snack) => 
+{
+    await SnackGetter.AddNewSnackAsync(snack);
+    return Results.Ok();
+}).DisableAntiforgery();
+
+app.MapPut("/modify-snack/{id}", async (Snack snack, int id) =>
+{
+    await SnackGetter.ModifySnackAsync(snack, id);
+});
+
+app.MapDelete("/delete-snack/{id}", (int id) =>
+{
+    SnackGetter.DeleteSnack(id);
+    return Results.Ok();
+});
+
+app.MapGet("/get-users", async () =>
+{
+    var users = await UserGetter.GetAllUsersAsync();
+    return users;
+});
+
+app.MapPost("/add-user", async (User user) => 
+{
+    await UserGetter.AddNewUserAsync(user);
+    return Results.Ok();
+}).DisableAntiforgery();
+
+app.MapPut("/modify-user/{id}", async (User user, int id) =>
+{
+    await UserGetter.ModifyUserAsync(user, id);
+});
+
+app.MapDelete("/delete-user/{id}", (int id) =>
+{
+    UserGetter.DeleteUser(id);
     return Results.Ok();
 });
 
