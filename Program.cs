@@ -5,6 +5,7 @@ using snackapi;
 using userapi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -128,6 +129,12 @@ app.MapDelete("/delete-user/{id}", (int id) =>
 {
     UserGetter.DeleteUser(id);
     return Results.Ok();
+});
+
+app.MapGet("/get-user-tickets", async (int id) =>
+{
+    var users = await UserGetter.GetAllUserTicketsAsync(id);
+    return users;
 });
 
 app.UseHttpsRedirection();

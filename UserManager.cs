@@ -1,4 +1,5 @@
 using System.Text.Json;
+using ticketapi;
 namespace userapi;
 
 public class UserGetter
@@ -27,6 +28,7 @@ public class UserGetter
             users[id].Exp = user.Exp;
             users[id].Name = user.Name;
             users[id].Email = user.Email;
+            users[id].User_tickets = user.User_tickets;
 
             string usersJson = JsonSerializer.Serialize(users);
             await File.WriteAllTextAsync(filePath, usersJson);
@@ -64,6 +66,8 @@ public class UserGetter
                 Exp = 0,
                 Name = "User1",
                 Email = "User1@gmail.com",
+                User_tickets = [],
+                User_snacks = [],
             };
             await AddNewUserAsync(user1);
 
@@ -71,6 +75,8 @@ public class UserGetter
                 Exp = 1,
                 Name = "User2",
                 Email = "User2@gmail.com",
+                User_tickets = [],
+                User_snacks = [],
             };
             await AddNewUserAsync(user2);
 
@@ -78,6 +84,8 @@ public class UserGetter
                 Exp = 2,
                 Name = "User3",
                 Email = "User3@gmail.com",
+                User_tickets = [],
+                User_snacks = [],
             };
             await AddNewUserAsync(user3);
         }
@@ -86,5 +94,20 @@ public class UserGetter
             return users;
         }
         return users;
+    }
+
+    public static async Task<List<Ticket>> GetAllUserTicketsAsync(int id)
+    {
+        string filePath = $"users.json";
+        string json = await File.ReadAllTextAsync(filePath);
+        List<User>? users = JsonSerializer.Deserialize<List<User>>(json);
+        List<Ticket>? tickets = users?[id]?.User_tickets?.ToList();
+        if (users is null)
+            throw new Exception("Users are null! ");
+
+        if (tickets is null)
+            throw new Exception("Tickets are null! ");
+        
+        return tickets;
     }
 }
