@@ -25,7 +25,7 @@ public class TicketGetter
         if (tickets is not null)
         {
             tickets[id].Id = ticket.Id;
-            tickets[id].Movieid = ticket.Movieid;
+            tickets[id].Movie_id = ticket.Movie_id;
             tickets[id].Redeemed = ticket.Redeemed;
 
             string ticketsJson = JsonSerializer.Serialize(tickets);
@@ -62,42 +62,42 @@ public class TicketGetter
         {
             Ticket ticket1 = new Ticket() {
                 Id = 0,
-                Movieid = 0,
+                Movie_id = 0,
                 Redeemed = false,
             };
             await AddNewTicketAsync(ticket1);
 
             Ticket ticket2 = new Ticket() {
                 Id = 1,
-                Movieid = 0,
+                Movie_id = 0,
                 Redeemed = false,
             };
             await AddNewTicketAsync(ticket2);
 
             Ticket ticket3 = new Ticket() {
                 Id = 2,
-                Movieid = 1,
+                Movie_id = 1,
                 Redeemed = false,
             };
             await AddNewTicketAsync(ticket3);
 
             Ticket ticket4 = new Ticket() {
                 Id = 3,
-                Movieid = 1,
+                Movie_id = 1,
                 Redeemed = false,
             };
             await AddNewTicketAsync(ticket4);
 
             Ticket ticket5 = new Ticket() {
                 Id = 4,
-                Movieid = 2,
+                Movie_id = 2,
                 Redeemed = false,
             };
             await AddNewTicketAsync(ticket5);
 
             Ticket ticket6 = new Ticket() {
                 Id = 5,
-                Movieid = 2,
+                Movie_id = 2,
                 Redeemed = false,
             };
             await AddNewTicketAsync(ticket6);

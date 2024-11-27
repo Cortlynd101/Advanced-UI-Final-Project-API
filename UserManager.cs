@@ -29,6 +29,7 @@ public class UserGetter
             users[id].Name = user.Name;
             users[id].Email = user.Email;
             users[id].User_tickets = user.User_tickets;
+            users[id].User_snacks = user.User_snacks;
 
             string usersJson = JsonSerializer.Serialize(users);
             await File.WriteAllTextAsync(filePath, usersJson);

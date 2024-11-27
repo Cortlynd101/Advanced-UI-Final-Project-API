@@ -1,1 +1,1 @@
-[{"Id":0,"Movieid":0,"Redeemed":false},{"Id":1,"Movieid":0,"Redeemed":false},{"Id":2,"Movieid":1,"Redeemed":false},{"Id":3,"Movieid":1,"Redeemed":false},{"Id":4,"Movieid":2,"Redeemed":false},{"Id":5,"Movieid":2,"Redeemed":false}]
+[{"Id":0,"Movie_id":0,"Redeemed":false},{"Id":1,"Movie_id":0,"Redeemed":false},{"Id":2,"Movie_id":1,"Redeemed":false},{"Id":3,"Movie_id":1,"Redeemed":false},{"Id":4,"Movie_id":2,"Redeemed":false},{"Id":5,"Movie_id":2,"Redeemed":false}]
