@@ -60,47 +60,35 @@ public class TicketGetter
 
         if (tickets.Count() == 0)
         {
-            Ticket ticket1 = new Ticket() {
-                Id = 0,
-                Movie_id = 0,
-                Redeemed = false,
-            };
-            await AddNewTicketAsync(ticket1);
+            for (int i = 0; i < 20; i++)
+            {
+                Ticket newTicket = new Ticket() {
+                    Id = i,
+                    Movie_id = 0,
+                    Redeemed = false
+                };
+                await AddNewTicketAsync(newTicket);
+            }
 
-            Ticket ticket2 = new Ticket() {
-                Id = 1,
-                Movie_id = 0,
-                Redeemed = false,
-            };
-            await AddNewTicketAsync(ticket2);
+            for (int i = 0; i < 20; i++)
+            {
+                Ticket newTicket = new Ticket() {
+                    Id = i + 20,
+                    Movie_id = 1,
+                    Redeemed = false
+                };
+                await AddNewTicketAsync(newTicket);
+            }
 
-            Ticket ticket3 = new Ticket() {
-                Id = 2,
-                Movie_id = 1,
-                Redeemed = false,
-            };
-            await AddNewTicketAsync(ticket3);
-
-            Ticket ticket4 = new Ticket() {
-                Id = 3,
-                Movie_id = 1,
-                Redeemed = false,
-            };
-            await AddNewTicketAsync(ticket4);
-
-            Ticket ticket5 = new Ticket() {
-                Id = 4,
-                Movie_id = 2,
-                Redeemed = false,
-            };
-            await AddNewTicketAsync(ticket5);
-
-            Ticket ticket6 = new Ticket() {
-                Id = 5,
-                Movie_id = 2,
-                Redeemed = false,
-            };
-            await AddNewTicketAsync(ticket6);
+            for (int i = 0; i < 20; i++)
+            {
+                Ticket newTicket = new Ticket() {
+                    Id = i + 40,
+                    Movie_id = 2,
+                    Redeemed = false
+                };
+                await AddNewTicketAsync(newTicket);
+            }
         }
         else
         {
