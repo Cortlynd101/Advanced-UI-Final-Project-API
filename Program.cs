@@ -26,7 +26,6 @@ builder.Services.AddCors();
 //                 // IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key"))
 //             };
 //         });
-
 var app = builder.Build();
 app.UseCors(c => c.AllowAnyHeader()
     .AllowAnyMethod()
