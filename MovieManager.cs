@@ -70,8 +70,8 @@ public class MovieGetter
                 Genre = "Science Fiction",
                 Runtime = "2h 49m",
                 Rating = "8.7",
-                Entrance_date =  new DateTime(2024, 11, 29),
-                Exit_date =  new DateTime(2024, 12, 05),
+                Entrance_date =  new DateTime(2024, 12, 06),
+                Exit_date =  new DateTime(2024, 12, 12),
             };
             await AddNewMovieAsync(movie1);
 
@@ -81,8 +81,8 @@ public class MovieGetter
                 Genre = "Action",
                 Runtime = "2h 32m",
                 Rating = "9.0",
-                Entrance_date =  new DateTime(2024, 11, 29),
-                Exit_date =  new DateTime(2024, 12, 05),
+                Entrance_date =  new DateTime(2024, 12, 06),
+                Exit_date =  new DateTime(2024, 12, 12),
             };
             await AddNewMovieAsync(movie2);
 
@@ -92,8 +92,8 @@ public class MovieGetter
                 Genre = "Fantasy",
                 Runtime = "3h 21m",
                 Rating = "9.0",
-                Entrance_date =  new DateTime(2024, 11, 29),
-                Exit_date =  new DateTime(2024, 12, 05),
+                Entrance_date =  new DateTime(2024, 12, 06),
+                Exit_date =  new DateTime(2024, 12, 12),
             };
             await AddNewMovieAsync(movie3);
 
@@ -103,8 +103,8 @@ public class MovieGetter
                 Genre = "Fantasy",
                 Runtime = "2h 41m",
                 Rating = "7.4",
-                Entrance_date =  new DateTime(2024, 12, 06),
-                Exit_date =  new DateTime(2024, 12, 12),
+                Entrance_date =  new DateTime(2024, 12, 13),
+                Exit_date =  new DateTime(2024, 12, 19),
             };
             await AddNewMovieAsync(movie4);
 
@@ -114,8 +114,8 @@ public class MovieGetter
                 Genre = "Science Fiction",
                 Runtime = "2h 4m",
                 Rating = "8.7",
-                Entrance_date =  new DateTime(2024, 12, 06),
-                Exit_date =  new DateTime(2024, 12, 12),
+                Entrance_date =  new DateTime(2024, 12, 13),
+                Exit_date =  new DateTime(2024, 12, 19),
             };
             await AddNewMovieAsync(movie5);
         }
